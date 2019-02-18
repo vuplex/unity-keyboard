@@ -1,0 +1,57 @@
+@import '../../../variables.scss';
+
+.voice-button {
+
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  position: relative;
+  border-radius: 50%;
+  background-color: darken(white, 35%);
+
+  .voice-button-icon {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* for the Oculus Go hover workaround. */
+
+    > div {
+      width: 50%;
+      height: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  svg {
+    position: absolute; top: -224px; left: -224px;
+    transform: scale(0.05);
+    fill: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+
+  &:hover, &.hover {
+    background-color: darken($theme-color, 10%);
+    svg {
+      fill: $keyboard-color;
+    }
+  }
+
+  $recording-color-1: #ff3300;
+  $recording-color-2: #ff8000;
+
+  @keyframes recordingBackground {
+    0% { background: $recording-color-1 ; }
+    50% { background: $recording-color-2; }
+    100% { background: $recording-color-1; }
+  }
+
+  &.voice-button-active {
+    animation:recordingBackground 5s infinite;
+    svg {
+      fill: white;
+    }
+  }
+}

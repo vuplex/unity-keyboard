@@ -1,0 +1,31 @@
+@import '../../../variables.scss';
+
+.num-pad {
+  width: 100%;
+  height: 100%;
+  border-radius: $keyboard-border-radius;
+  background-color: $keyboard-color;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .key-area {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 90%;
+
+    .key-row {
+      display: flex;
+      justify-content: space-around;
+      flex: 1 1 auto;
+
+      .key {
+        flex: 1 0 auto;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,47 @@
+@import '../../../variables.scss';
+
+.right-pad {
+  width: 100%;
+  height: 100%;
+  background-color: $keyboard-color;
+  border-radius: $keyboard-border-radius;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .key-area {
+    width: 90%;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .right-key-area {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    $arrow-size: 1.25em;
+
+    .arrow-pad {
+      width: 90%;
+      height: 3 * $arrow-size;
+      display: flex;
+      flex-direction: column;
+      font-size: $arrow-size;
+
+      .arrow-pad-row {
+        flex: 1 1 auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.arrow-pad-middle {
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

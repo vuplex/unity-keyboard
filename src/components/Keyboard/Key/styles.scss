@@ -1,0 +1,34 @@
+@import '../../../variables.scss';
+
+.key-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+
+  > img, div, span {
+    pointer-events: none; /* For the Oculus Go hover workaround. */
+  }
+
+  &:hover, &.hover {
+    background-color: lighten($keyboard-color, 15%);
+  }
+
+  &.key-down {
+    background-color: lighten($keyboard-color, 50%);
+  }
+
+  &.key-up {
+
+    animation: highlight 1s;
+  }
+
+  @keyframes highlight {
+    0% {
+      background-color: lighten($keyboard-color, 50%);
+    }
+    100% {
+      background-color: auto;
+    }
+  }
+}

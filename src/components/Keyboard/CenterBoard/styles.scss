@@ -1,0 +1,55 @@
+@import '../../../variables.scss';
+
+.center-board {
+  background-color: $keyboard-color;
+  color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: $keyboard-border-radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .key-area {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 90%;
+    .key-row {
+      display: flex;
+      justify-content: space-around;
+      flex: 1 1 auto;
+
+      .key {
+        flex: 2 0 auto;
+      }
+
+      .key-offset-margin {
+        flex: 1 0 auto;
+      }
+
+      .spacebar-container {
+        flex: 12 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .spacebar {
+          width: 98%;
+          height: 80%;
+          background-color: lighten($keyboard-color, 10%);
+          border-radius: $keyboard-border-radius;
+          color: darken(white, 35%);
+
+          &.hover, &:hover {
+            background-color: lighten($keyboard-color, 15%);
+          }
+
+          &:active {
+            background-color: lighten($keyboard-color, 30%);
+          }
+        }
+      }
+    }
+  }
+}
