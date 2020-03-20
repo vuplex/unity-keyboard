@@ -12,7 +12,17 @@ body {
   font-size: 20px;
 }
 
+// For Gecko only, set the background color
+// to black so that AndroidViewportShader
+// can translate the black pixels to transparent.
+@supports (-moz-appearance:none) {
+  body {
+    background-color: black;
+  }
+}
+
 #root {
   width: 100%;
   height: 100%;
 }
+
