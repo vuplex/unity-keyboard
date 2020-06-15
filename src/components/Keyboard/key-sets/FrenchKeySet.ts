@@ -35,7 +35,7 @@ export default class FrenchKeySet extends LanguageKeySet {
     return [
       [ 'a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
       [ 'q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm' ],
-      [ 'z', 'x', 'c', 'v', 'b', 'n', `'`, '/' ]
+      [ 'w', 'x', 'c', 'v', 'b', 'n', `'`, '/' ]
     ];
   }
 }
