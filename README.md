@@ -12,7 +12,16 @@ This code is open source so that users can customize it and so that it can demon
 
 This is a React + TypeScript project created using [Create Creact App](https://github.com/facebook/create-react-app).
 
-- Install dependencies: `npm install`
+- The project's dependencies currently require Node 8, so please use [nvm](https://github.com/nvm-sh/nvm) to switch to Node 8:
+
+```
+# Install Node 8 first if necessary.
+nvm install 8
+# Switch to Node 8
+nvm use 8
+```
+
+- After you have switched to Node 8, you can install dependencies: `npm install`
 
 - Start the dev server: `npm start`
 
