@@ -10,7 +10,7 @@ This code is open source so that users can customize it and so that it can demon
 
 ## Development
 
-This is a React + TypeScript project created using [Create Creact App](https://github.com/facebook/create-react-app).
+This is a React + TypeScript project created using [Create React App](https://github.com/facebook/create-react-app).
 
 - The project's dependencies currently require Node 8, so please use [nvm](https://github.com/nvm-sh/nvm) to switch to Node 8:
 
