@@ -41,7 +41,7 @@ export default class Key extends Component<{ className?: string, definition: Key
     }
 
     return (
-      <div className={classNames.join(' ')} onMouseDown={this._handleMouseDown} onMouseUp={this._handleMouseUp}>
+      <div className={classNames.join(' ')} onMouseDown={this._handleMouseDown} onMouseUp={this._handleMouseUp} onMouseLeave={this._handleMouseLeave}>
         {this.props.children || this.props.definition.value}
       </div>
     );
@@ -64,6 +64,16 @@ export default class Key extends Component<{ className?: string, definition: Key
       this.setState({ keyState: KeyState.DOWN_CONTINUOUSLY });
       this._keyDownContinuouslyIntervalId = setInterval(this.props.definition.onClick, 100);
     }, 1000);
+  }
+
+  private _handleMouseLeave = () => {
+
+    // Handle the case where mousedown occurs in one key but mouseup occurs in a different key.
+    const { keyState } = this.state;
+    if (keyState === KeyState.DOWN || keyState === KeyState.DOWN_CONTINUOUSLY) {
+      this._clearTimers();
+      this.setState({ keyState: KeyState.NORMAL });
+    }
   }
 
   private _handleMouseUp = () => {
