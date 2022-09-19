@@ -45,14 +45,15 @@ const escapedHtml = inlinedHtml.replace(/"/g, '""').replace(/\n/g, '');
 
 const cSharpClass = `
 namespace Vuplex.WebView {
-    /**
-    * To simplify usage, the Unity Keyboard web frontend is inlined in this class.
-    * This way, the HTML, JS, and CSS files don't need to be added to the Android
-    * or iOS project.
-    *
-    * The source code for this web frontend is available at
-    * https://github.com/vuplex/unity-keyboard
-    */
+
+    /// <summary>
+    /// To simplify usage, the HTML for the Keyboard prefab's web frontend is inlined in this
+    /// class's KeyboardUi.Html field. This eliminates the need for the application to include the keyboard's
+    /// HTML, JS, and CSS files in StreamingAssets.
+    ///
+    /// The source code for this web frontend is available here:
+    /// https://github.com/vuplex/unity-keyboard .
+    /// </summary>
     class KeyboardUi {
 
         public const string Html = @"${escapedHtml}";
