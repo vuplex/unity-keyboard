@@ -33,8 +33,8 @@ export default class GermanKeySet extends LanguageKeySet {
   */
   getLowerCaseCharactersByRow() {
     return [
-      [ 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p' ],
-      [ 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ],
+      [ 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ü' ],
+      [ 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ö', 'ä' ],
       [ 'y', 'x', 'c', 'v', 'b', 'n', 'm', '!', '?' ]
     ];
   }
