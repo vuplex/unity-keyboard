@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
-console.log('Generating KeyboardUi.cs...')
+console.log('Generating KeyboardUI.cs...')
 const originalHtml = fs.readFileSync('./build/index.html', 'utf8');
 const $ = cheerio.load(originalHtml);
 
@@ -43,23 +43,22 @@ do {
 
 const escapedHtml = inlinedHtml.replace(/"/g, '""').replace(/\n/g, '');
 
-const cSharpClass = `
-namespace Vuplex.WebView {
+const cSharpClass = `namespace Vuplex.WebView.Internal {
 
     /// <summary>
     /// To simplify usage, the HTML for the Keyboard prefab's web frontend is inlined in this
-    /// class's KeyboardUi.Html field. This eliminates the need for the application to include the keyboard's
+    /// class's KeyboardUI.Html field. This eliminates the need for the application to include the keyboard's
     /// HTML, JS, and CSS files in StreamingAssets.
     ///
     /// The source code for this web frontend is available here:
     /// https://github.com/vuplex/unity-keyboard .
     /// </summary>
-    class KeyboardUi {
+    class KeyboardUI {
 
         public const string Html = @"${escapedHtml}";
     }
 }
 `
 
-fs.writeFileSync('build/KeyboardUi.cs', cSharpClass, 'utf8');
+fs.writeFileSync('build/KeyboardUI.cs', cSharpClass, 'utf8');
 console.log('Finished generating build/KeyboardUi.cs');
