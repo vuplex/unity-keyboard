@@ -5,6 +5,7 @@ import DanishKeySet from './DanishKeySet';
 import EnglishKeySet from './EnglishKeySet';
 import FrenchKeySet from './FrenchKeySet';
 import GermanKeySet from './GermanKeySet';
+import ItalianKeySet from './ItalianKeySet';
 import LanguageKeySet from './LanguageKeySet';
 import NorwegianKeySet from './NorwegianKeySet';
 import RussianKeySet from './RussianKeySet';
@@ -20,6 +21,7 @@ export default class MultilingualKeySet extends EventEmitter {
     new SpanishKeySet(),
     new FrenchKeySet(),
     new GermanKeySet(),
+    new ItalianKeySet(),
     new RussianKeySet(),
     new DanishKeySet(),
     new NorwegianKeySet(),
