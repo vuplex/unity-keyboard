@@ -13,6 +13,8 @@ const styles = fs.readFileSync(path.join('build', cssFilePath), 'utf8');
 styleLinkElement.before(`<style>${styles}</style>`);
 styleLinkElement.remove();
 
+let body = $('body');
+
 // Inline the JS
 $('script[src]').each(function () {
   const scriptElement = $(this); // executed in the context of the current element.
@@ -20,6 +22,8 @@ $('script[src]').each(function () {
   const js = fs.readFileSync(path.join('build', jsFilePath), 'utf8');
   scriptElement.removeAttr('src');
   scriptElement.text(js);
+  body.append($.html(this));
+  scriptElement.remove();
 });
 
 // Inline the SVGs by replacing the relative URLs with data URIs.
