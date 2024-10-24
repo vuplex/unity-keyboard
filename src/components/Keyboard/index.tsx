@@ -74,8 +74,10 @@ export default class Keyboard extends Component {
 
     const data = JSON.parse(message.data);
 
-    // eslint-disable-next-line
     switch (data.type) {
+      case MessageType.KEYBOARD_HIDDEN:
+        Key.handleKeyboardHidden();
+        break;
       case MessageType.SET_LANGUAGE:
         this._keySet.setLanguage(data.value);
         break;

@@ -61,4 +61,4 @@ const cSharpClass = `namespace Vuplex.WebView.Internal {
 `
 
 fs.writeFileSync('build/KeyboardUI.cs', cSharpClass, 'utf8');
-console.log('Finished generating build/KeyboardUi.cs');
+console.log('Finished generating build/KeyboardUI.cs');

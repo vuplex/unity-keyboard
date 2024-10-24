@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import KeyDefinition from '../../../models/KeyDefinition';
+import EventEmitter from '../../../utils/EventEmitter';
 import './styles.scss';
 
 enum KeyState {
@@ -9,18 +10,31 @@ enum KeyState {
   NORMAL
 };
 
+const KEYBOARD_HIDDEN_EVENT_NAME = 'keyboardhidden';
+
 export default class Key extends Component<{ className?: string, definition: KeyDefinition }> {
 
   state = {
     keyState: KeyState.NORMAL
   };
-  private _keyUpTimeoutId: any;
-  private _keyDownTimeoutId: any;
-  private _keyDownContinuouslyIntervalId: any;
+
+  componentDidMount() {
+
+    // Clear the timers when the keyboard is hidden so that the key
+    // doesn't get stuck in the KeyState.DOWN_CONTINUOUSLY state.
+    this._clearTimers = this._clearTimers.bind(this);
+    Key._events.addListener(KEYBOARD_HIDDEN_EVENT_NAME, this._clearTimers);
+  }
 
   componentWillUnmount() {
 
     this._clearTimers();
+    Key._events.removeListener(KEYBOARD_HIDDEN_EVENT_NAME, this._clearTimers);
+  }
+
+  static handleKeyboardHidden() {
+
+    this._events.emit(KEYBOARD_HIDDEN_EVENT_NAME);
   }
 
   render() {
@@ -29,7 +43,6 @@ export default class Key extends Component<{ className?: string, definition: Key
     if (this.props.className) {
       classNames.push(this.props.className);
     }
-    // eslint-disable-next-line default-case
     switch (this.state.keyState) {
       case KeyState.DOWN:
       case KeyState.DOWN_CONTINUOUSLY:
@@ -46,6 +59,11 @@ export default class Key extends Component<{ className?: string, definition: Key
       </div>
     );
   }
+
+  private static _events = new EventEmitter();
+  private _keyUpTimeoutId: any;
+  private _keyDownTimeoutId: any;
+  private _keyDownContinuouslyIntervalId: any;
 
   private _clearTimers = () => {
 

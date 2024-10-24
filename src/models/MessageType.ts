@@ -3,6 +3,7 @@ enum MessageType {
   /**
   * Incoming messages
   */
+  KEYBOARD_HIDDEN = 'keyboard.hidden',
   SET_LANGUAGE = 'keyboard.setLanguage',
   VOICE_RECOGNITION_DISABLED = 'keyboard.voiceRecognitionDisabled',
   VOICE_RECOGNITION_ENABLED = 'keyboard.voiceRecognitionEnabled',
